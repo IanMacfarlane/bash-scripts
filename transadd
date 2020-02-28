@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#Mimeapp script for adding torrent to transmission-daemon, but will also start the daemon first if not running
+
+#if disconnected nordvpn then connect
+status=$(nordvpn status | grep "Status" | awk '{print $2}')
+case "$status" in
+"Disconnected")
+	nordvpn c
+	;;
+esac
+
+pgrep -x transmission-da >/dev/null || (transmission-daemon && sleep 3)
+tremc "$@"

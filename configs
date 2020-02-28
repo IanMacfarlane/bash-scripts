@@ -1,0 +1,19 @@
+#!/bin/sh
+#choose config file in dmenu and open in st vim
+
+config=$(echo -e 'i3\npolybar\nzathura\nranger\n' | dmenu -b -fn 'Monospace-13')
+
+case "$config" in
+"i3")
+	vim ~/.config/i3/config
+	;;
+"polybar")
+	vim ~/.config/polybar/config
+	;;
+"zathura")
+	vim ~/.config/zathura/zathurarc
+	;;
+"ranger")
+	vim ~/.config/ranger/rc.conf
+	;;
+esac

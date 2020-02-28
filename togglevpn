@@ -1,0 +1,13 @@
+#!/bin/sh
+#toggles vpn connection
+
+status=$(nordvpn status | grep "Status" | awk '{print $2}')
+case "$status" in
+"Connected")
+	transmission-remote --exit
+	nordvpn d
+	;;
+"Disconnected")
+	nordvpn c
+	;;
+esac

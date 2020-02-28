@@ -1,0 +1,13 @@
+#!/bin/sh
+
+#runs tremc but runs daemon first
+
+status=$(nordvpn status | grep "Status" | awk '{print $2}')
+case "$status" in
+"Disconnected")
+	nordvpn c
+	;;
+esac
+
+pgrep -x transmission-da >/dev/null || (transmission-daemon && sleep 3)
+tremc

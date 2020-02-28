@@ -1,0 +1,12 @@
+#!/bin/sh
+#polybar script to display vpn connection status
+
+status=$(nordvpn status | grep "Status" | awk '{print $2}')
+case "$status" in
+"Connected")
+	echo VPN
+	;;
+"Disconnected")
+	echo
+	;;
+esac
