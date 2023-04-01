@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ~/Games/crawl/crawl-ref/source/
+./crawl

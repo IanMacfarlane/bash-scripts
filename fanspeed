@@ -1,0 +1,6 @@
+#!/bin/sh
+#polybar script to display vpn connection status
+
+temp=$(sensors | grep "fan2:" | awk '{print $2}')
+
+echo $temp\rpm

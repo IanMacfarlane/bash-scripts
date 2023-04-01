@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd ~/Games/sil-q
+./sil -r -mgcu
